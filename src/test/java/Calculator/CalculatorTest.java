@@ -24,7 +24,7 @@ public class CalculatorTest {
     }
 
     @Test
-    void UnknownAmountOfIntegerShouldReturnCorrectValue(){
+    void UnknownAmountOfIntegerShouldReturnCorrectSum(){
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         int rng = random.nextInt(10);
@@ -34,5 +34,11 @@ public class CalculatorTest {
             expected = expected + i;
         }
         assertEquals(expected, calculator.add(String.valueOf(sb)), "Sum of String numbers & expected should be the same.");
+    }
+    @Test
+    void NewLineDelimiterBetweenNumbers(){
+        String numbers = "1\n2";
+        int result = calculator.add(numbers);
+        assertEquals(3, result, "Sum by 1 + 2 should be 3.");
     }
 }
