@@ -2,18 +2,21 @@ package Calculator;
 
 public class Calculator {
     public int add(String input) {
-        if(input.isEmpty()) {
+        if (input.isEmpty()) {
             return 0;
+        } else {
+            return getSum(input);
         }
-        if(input.length() == 1){
-            return Integer.parseInt(input);
-        }else{
-            String[] splitNumbers = input.split("[,\n/;]");
-            int sum = 0;
-            for (String splitNumber : splitNumbers) {
+    }
+
+    private int getSum(String input) {
+        String[] splitNumbers = input.split("[,\n/;]");
+        int sum = 0;
+        for (String splitNumber : splitNumbers) {
+            if (!splitNumber.isEmpty()) {
                 sum = sum + Integer.parseInt(splitNumber);
             }
-            return sum;
         }
+        return sum;
     }
 }
