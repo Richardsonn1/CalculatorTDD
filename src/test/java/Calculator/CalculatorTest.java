@@ -41,4 +41,10 @@ public class CalculatorTest {
         assertEquals(3, calculator.add("1\n2"), "Sum by 1 + 2 should be 3.");
     }
 
+    @Test
+    void DifferentDelimiterSupportBetweenNumbers(){
+        String numbers = "//;\n1;2";
+        int result = calculator.add(numbers);
+        assertEquals(3, result, "Sum by 1 + 2 should be 3.");
+    }
 }
