@@ -15,4 +15,11 @@ public class CalculatorTest {
     void OneIntegerInputShouldReturnSameValue(){
         assertEquals(1,calculator.add("1"),"1 + nothing should return 1.");
     }
+
+    @Test
+    void TwoIntegersInputWithDelimiterShouldReturnSum(){
+        String input = "1,2";
+        int result = calculator.add(input);
+        assertEquals(3, result, "Sum by 1 + 2 should be 3.");
+    }
 }
