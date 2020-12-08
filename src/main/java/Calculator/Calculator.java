@@ -10,8 +10,8 @@ public class Calculator {
         }else{
             String[] splitNumbers = input.split(",");
             int sum = 0;
-            for(int i = 0; i < splitNumbers.length; i++){
-                sum = sum + Integer.parseInt(splitNumbers[i]);
+            for (String splitNumber : splitNumbers) {
+                sum = sum + Integer.parseInt(splitNumber);
             }
             return sum;
         }

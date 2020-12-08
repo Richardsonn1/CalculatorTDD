@@ -33,8 +33,6 @@ public class CalculatorTest {
             sb.append(i).append(",");
             expected = expected + i;
         }
-        String numbers = String.valueOf(sb);
-        int result = calculator.add(numbers);
-        assertEquals(expected, result, "Sum of String numbers & expected should be the same.");
+        assertEquals(expected, calculator.add(String.valueOf(sb)), "Sum of String numbers & expected should be the same.");
     }
 }
