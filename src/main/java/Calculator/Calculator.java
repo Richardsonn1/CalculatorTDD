@@ -9,7 +9,11 @@ public class Calculator {
             return Integer.parseInt(input);
         }else{
             String[] splitNumbers = input.split(",");
-            return Integer.parseInt(splitNumbers[0]) + Integer.parseInt(splitNumbers[1]);
+            int sum = 0;
+            for(int i = 0; i < splitNumbers.length; i++){
+                sum = sum + Integer.parseInt(splitNumbers[i]);
+            }
+            return sum;
         }
     }
 }
