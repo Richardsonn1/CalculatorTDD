@@ -7,8 +7,14 @@ public class CalculatorTest {
     @Test
     void EmptyLineInputReturnsZero(){
         Calculator calculator = new Calculator();
-        String input = "";
+        assertEquals(0,calculator.add(""), "Sum by nothing should be 0.");
+    }
+
+    @Test
+    void OneIntegerInputShouldReturnSameValue(){
+        Calculator calculator = new Calculator();
+        String input = "1";
         int result = calculator.add(input);
-        assertEquals(0,result, "Sum by nothing should be 0.");
+        assertEquals(1,result,"1 + nothing should return 1.");
     }
 }
