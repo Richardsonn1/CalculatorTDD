@@ -45,4 +45,10 @@ public class CalculatorTest {
     void DifferentDelimiterSupportBetweenNumbers(){
         assertEquals(3, calculator.add("//;\n1;2"), "Sum by 1 + 2 should be 3.");
     }
+
+    @Test
+    void ThrowNegativeNumbersNotAllowed(){
+        String numbers = "-1,-2\n3";
+        assertThrows(IllegalArgumentException.class, () -> calculator.add(numbers));
+    }
 }
