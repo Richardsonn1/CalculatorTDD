@@ -18,8 +18,6 @@ public class CalculatorTest {
 
     @Test
     void TwoIntegersInputWithDelimiterShouldReturnSum(){
-        String input = "1,2";
-        int result = calculator.add(input);
-        assertEquals(3, result, "Sum by 1 + 2 should be 3.");
+        assertEquals(3, calculator.add("1,2"), "Sum by 1 + 2 should be 3.");
     }
 }
