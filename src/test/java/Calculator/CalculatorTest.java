@@ -50,4 +50,11 @@ public class CalculatorTest {
     void ThrowNegativeNumbersNotAllowed(){
         assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,-2\n3"));
     }
+
+    @Test
+    void NumbersBiggerThenThousandShouldBeRemoved(){
+        String numbers = "1,10001";
+        int result = calculator.add(numbers);
+        assertEquals(1,result, "1 + nothing should be 1.");
+    }
 }
