@@ -13,16 +13,7 @@ public class Calculator {
 
     private int getSum(String input) {
         String[] splitNumbers = input.split("[,\n/;]");
-        ArrayList<Integer> negativeNumbers = new ArrayList<>();
-        for (int i = 0; i < splitNumbers.length; i++) {
-            String number = splitNumbers[i];
-            if (!number.isEmpty() && Integer.parseInt(number) < 0) {
-                negativeNumbers.add(Integer.parseInt(number));
-            }
-        }
-        if(0 < negativeNumbers.size()){
-            throw new IllegalArgumentException("Negatives not allowed! Negatives used: " + negativeNumbers.toString());
-        }
+        checkForNegativeNumbers(splitNumbers);
         int sum = 0;
         for (String splitNumber : splitNumbers) {
             if (!splitNumber.isEmpty()) {
@@ -30,5 +21,17 @@ public class Calculator {
             }
         }
         return sum;
+    }
+
+    private void checkForNegativeNumbers(String[] splitNumbers) {
+        ArrayList<Integer> negativeNumbers = new ArrayList<>();
+        for (String number : splitNumbers) {
+            if (!number.isEmpty() && Integer.parseInt(number) < 0) {
+                negativeNumbers.add(Integer.parseInt(number));
+            }
+        }
+        if(0 < negativeNumbers.size()){
+            throw new IllegalArgumentException("Negatives not allowed! Negatives used: " + negativeNumbers.toString());
+        }
     }
 }

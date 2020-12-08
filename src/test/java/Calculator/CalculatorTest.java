@@ -48,7 +48,6 @@ public class CalculatorTest {
 
     @Test
     void ThrowNegativeNumbersNotAllowed(){
-        String numbers = "-1,-2\n3";
-        assertThrows(IllegalArgumentException.class, () -> calculator.add(numbers));
+        assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,-2\n3"));
     }
 }
