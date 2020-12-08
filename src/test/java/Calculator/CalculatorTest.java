@@ -53,8 +53,6 @@ public class CalculatorTest {
 
     @Test
     void NumbersBiggerThenThousandShouldBeRemoved(){
-        String numbers = "1,10001";
-        int result = calculator.add(numbers);
-        assertEquals(1,result, "1 + nothing should be 1.");
+        assertEquals(1,calculator.add("1,10001"), "1 + nothing should be 1.");
     }
 }

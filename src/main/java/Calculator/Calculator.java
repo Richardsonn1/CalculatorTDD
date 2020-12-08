@@ -16,7 +16,7 @@ public class Calculator {
         checkForNegativeNumbers(splitNumbers);
         int sum = 0;
         for (String splitNumber : splitNumbers) {
-            if (!splitNumber.isEmpty()) {
+            if (!splitNumber.isEmpty() && Integer.parseInt(splitNumber) < 1001) {
                 sum = sum + Integer.parseInt(splitNumber);
             }
         }
