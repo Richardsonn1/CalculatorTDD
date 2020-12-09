@@ -57,8 +57,6 @@ public class CalculatorTest {
     }
     @Test
     void MoreTypesOfDelimitersSupportBetweenNumbers(){
-        String numbers = "//[***]\n1***2***3";
-        int result = calculator.add(numbers);
-        assertEquals(6, result, "Sum by 1 + 2 + 3 should be 6.");
+        assertEquals(6, calculator.add("//[***]\n1***2***3"), "Sum by 1 + 2 + 3 should be 6.");
     }
 }
