@@ -12,7 +12,7 @@ public class Calculator {
     }
 
     private int getSum(String input) {
-        String[] splitNumbers = input.split("[,\n/;]");
+        String[] splitNumbers = input.split("[,\n/;*\\]\\[]");
         checkForNegativeNumbers(splitNumbers);
         int sum = 0;
         for (String splitNumber : splitNumbers) {
