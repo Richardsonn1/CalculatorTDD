@@ -63,7 +63,7 @@ public class CalculatorTest {
 
     @Test
     void EvenMoreDelimitersSupportBetweenNumbers(){
-        String numbers = "//[*][%]\\n1*2%3";
+        String numbers = "//[*][%]\n1*2%3";
         int result = calculator.add(numbers);
         assertEquals(6, result, "Sum by 1 + 2 + 3 should be 6.");
     }
