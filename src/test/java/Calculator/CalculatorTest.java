@@ -55,8 +55,16 @@ public class CalculatorTest {
     void NumbersBiggerThenThousandShouldBeRemoved(){
         assertEquals(1,calculator.add("1,10001"), "1 + nothing should be 1.");
     }
+
     @Test
     void MoreTypesOfDelimitersSupportBetweenNumbers(){
         assertEquals(6, calculator.add("//[***]\n1***2***3"), "Sum by 1 + 2 + 3 should be 6.");
+    }
+
+    @Test
+    void EvenMoreDelimitersSupportBetweenNumbers(){
+        String numbers = "//[*][%]\\n1*2%3";
+        int result = calculator.add(numbers);
+        assertEquals(6, result, "Sum by 1 + 2 + 3 should be 6.");
     }
 }
