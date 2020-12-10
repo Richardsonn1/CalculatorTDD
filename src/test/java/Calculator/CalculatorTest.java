@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class CalculatorTest {
 
-    Calculator calculator = new Calculator();
+    final Calculator calculator = new Calculator();
 
     @Test
     void EmptyLineInputReturnsZero(){
