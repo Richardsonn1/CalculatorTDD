@@ -11,7 +11,7 @@ public class Calculator {
     }
 
     private int getSum(String input) {
-        String[] splitNumbers = input.split("[,\n/;%*\\]\\[]");
+        String[] splitNumbers = getSplitArray(input);
         checkForNegativeNumbers(splitNumbers);
         int sum = 0;
         for (String splitNumber : splitNumbers) {
@@ -34,7 +34,17 @@ public class Calculator {
         }
     }
 
-    /*Metoder för att hantera nya delimeters.
+
+    /***
+     * Methods to handle new types of delimiters.
+     * This code is not driven through TDD though.
+     *
+     * getSplitArray has 3 options.
+     * 1. If the input string starts with "//" it handles new types of delimiters.
+     * 2. If the input contains both "," and "\n" the method decides if it is a valid input.
+     * 3. Else it returns one delimiter, either comma or new line. Depending on what the input contains.
+     */
+
     private String[] getSplitArray(String input) {
         if(input.startsWith("//")){
             int endOfDelimiters = getEndOfDelimiters(input);
@@ -54,9 +64,7 @@ public class Calculator {
         for(int i = 0; i < input.length(); i++){
             if(String.valueOf(input.charAt(i)).equals(",") || String.valueOf(input.charAt(i)).equals("\n")){
                 delimiter++;
-            }else if(String.valueOf(input.charAt(i)).equals("-")){
-                delimiter--;
-            }else{
+            }else if(0 < Integer.parseInt(input)){
                 number++;
             }
         }
@@ -66,7 +74,7 @@ public class Calculator {
     private int getEndOfDelimiters(String input) {
         for (int i = 0; i < input.length(); i++) {
             if (input.contains("]") && String.valueOf(input.charAt(i)).equals("\n")
-            && String.valueOf(input.charAt(i - 1)).equals("]")) {
+                    && String.valueOf(input.charAt(i - 1)).equals("]")) {
                 return i;
             }
         }
@@ -80,5 +88,5 @@ public class Calculator {
         }
         return delimiters;
     }
-    */
+
 }

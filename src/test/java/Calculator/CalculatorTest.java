@@ -48,7 +48,7 @@ public class CalculatorTest {
 
     @Test
     void ThrowNegativeNumbersNotAllowed(){
-        assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,-2\n3"));
+        assertThrows(IllegalArgumentException.class, () -> calculator.add("-1,-2\n-3"));
     }
 
     @Test
@@ -59,6 +59,11 @@ public class CalculatorTest {
     @Test
     void MoreTypesOfDelimitersSupportBetweenNumbers(){
         assertEquals(6, calculator.add("//[***]\n1***2***3"), "Sum by 1 + 2 + 3 should be 6.");
+    }
+
+    @Test
+    void MoreTypesOfDelimitersSupportBetweenNumbersz(){
+        assertEquals(6, calculator.add("//[!!!]\n1!!!2!!!3"), "Sum by 1 + 2 + 3 should be 6.");
     }
 
     @Test
